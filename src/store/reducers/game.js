@@ -35,7 +35,7 @@ const initialState = {
 const game = (state = initialState, action) => {
 	switch(action.type){
 		case actionTypes.UPDATE:
-			const newState = updateGame(state.board, state.pieces, state.input); // run game logic on all pieces and board
+			const newState = updateGame(state.board, state.pieces, state.input);
 			return {
 				...state,
 				pieces: newState.pieces,

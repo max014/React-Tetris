@@ -93,40 +93,52 @@ class Piece {
 			return false;
 		};
 
-
-
-		const futureBlocks = this.position.map((block) => {
+		const oldPosition = this.position;
+		const newPosition = this.position.map((block) => {
 			return {
-				y: block.y -1,
+				y: block.y - 1,
 				x: block.x
 			}
-		});
+		})
 
-		// for(let i=0; i<futureBlocks.length; i++){
-		// 	for(let j=0; this.position.length; j++){
-				
-		// 		if(futureBlocks[i] === this.position[j]){
-		// 			console.log('here');
-		// 			return true
-		// 		}
-		// 	}
-		// }
+		for(let j=0; j<newPosition.length; j++){
+			let y = newPosition[j].y;
+			let x = newPosition[j].x;
+			let inThisPiece = false;
 
+			if (y >= 0){
+				if(board[y][x] === 0){
+					//do nothing for this block
+				} else {
+					for(let i=0; i<oldPosition.length; i++){
+						if(JSON.stringify(newPosition[j]) === JSON.stringify(oldPosition[i])){
+							inThisPiece = true;
+							break;
+						} 
+					}
+					if(inThisPiece){
+						// do nothing
+					} else {
+						return false;
+					}
+				}
+			}
+		}
 		return true;
 	}
 
 	fall(board) {
-	  	if(this.canFall(board)){
-	  		const newPosition = this.position.map((block) => {
+		if(this.canFall(board)){
+			const newPosition = this.position.map((block) => {
 		  		return {
 		  			y: block.y - 1,
 		  			x: block.x
 		  		};
 		  	});
 		  	this.position = newPosition;
-	  	} else {
-	  		this.active = false;
-	  	}
+		} else {
+		  	this.active = false;
+		}
 	}
 
 	canMoveSideways(input, board) {
@@ -182,20 +194,20 @@ class Piece {
 				break;
 			case "I":
 				newPosition = [
-					{ x: this.position[0].x - 2, y: this.position[0].y - 2 },
-	  				{ x: this.position[1].x - 1, y: this.position[1].y - 1 },
-	  				{ x: this.position[2].x, y: this.position[2].y },
-	  				{ x: this.position[3].x + 1, y: this.position[3].y + 1 }
+					{ x: this.position[0].x - 2, y: this.position[0].y - 3 },
+	  				{ x: this.position[1].x - 1, y: this.position[1].y - 2 },
+	  				{ x: this.position[2].x, y: this.position[2].y -1 },
+	  				{ x: this.position[3].x + 1, y: this.position[3].y }
 				];
 				break;
-			// case "T":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
+			case "T":
+				newPosition = [
+					{ x: this.position[0].x - 1, y: this.position[0].y - 1 },
+	  				{ x: this.position[1].x + 1, y: this.position[1].y - 1 },
+	  				{ x: this.position[2].x, y: this.position[2].y },
+	  				{ x: this.position[3].x - 1, y: this.position[3].y + 1 }
+				]
+				break;
 			// case "S":
 			// 	newPosition = [
 			// 		{ x: , y: },
