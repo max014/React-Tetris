@@ -50,8 +50,8 @@ class Piece {
 			this.position = [
 				{ y: 22, x: 5 },
 				{ y: 21, x: 5 },
-				{ y: 20, x: 5 },
-				{ y: 20, x: 4 }
+				{ y: 20, x: 4 },
+				{ y: 20, x: 5 }
 			];
 			this.color = 6;
 			break;
@@ -80,6 +80,7 @@ class Piece {
 		default:
 			return null;
   	}
+  	this.rotation = 0;
   	this.type = type;
   	this.active = true;
   }
@@ -187,140 +188,469 @@ class Piece {
 	  	return true;
 	}
 
-  	clockwise(){
+  	counterClockwise(){
   		let newPosition = this.position;
+
   		switch(this.type){
 	  		case "O":
 				break;
 			case "I":
-				newPosition = [
-					{ x: this.position[0].x - 2, y: this.position[0].y - 3 },
-	  				{ x: this.position[1].x - 1, y: this.position[1].y - 2 },
-	  				{ x: this.position[2].x, y: this.position[2].y -1 },
-	  				{ x: this.position[3].x + 1, y: this.position[3].y }
+				let positions = [
+					[
+						{ x: this.position[0].x - 2, y: this.position[0].y - 3 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y - 2 },
+		  				{ x: this.position[2].x, y: this.position[2].y -1 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+					],
+					[
+						{ x: this.position[0].x + 2, y: this.position[0].y + 3 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y + 2 },
+		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			]
 				];
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
 				break;
 			case "T":
-				newPosition = [
-					{ x: this.position[0].x - 1, y: this.position[0].y - 1 },
-	  				{ x: this.position[1].x + 1, y: this.position[1].y - 1 },
-	  				{ x: this.position[2].x, y: this.position[2].y },
-	  				{ x: this.position[3].x - 1, y: this.position[3].y + 1 }
+				positions = [
+					[
+						{ x: this.position[0].x - 1, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y + 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 1, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y - 1 }
+		  			],
+		  			[
+						{ x: this.position[0].x + 1, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y - 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 1, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y + 1 }
+		  			],
 				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[1];
+					this.rotation = 2;
+				} else if (this.rotation === 2) {
+					newPosition = positions[2];
+					this.rotation = 3;
+				} else if (this.rotation === 3) {
+					newPosition = positions[3];
+					this.rotation = 0;
+				}
 				break;
-			// case "S":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "Z":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "J":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "L":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "SUPER":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
+			case "S":
+				positions = [
+					[
+						{ x: this.position[0].x - 2, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x - 1, y: this.position[2].y },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 2, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x + 1, y: this.position[2].y },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			]
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
+				break;
+			case "Z":
+				positions = [
+					[
+						{ x: this.position[0].x + 2, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y },
+		  				{ x: this.position[2].x , y: this.position[2].y - 1 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 2, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y },
+		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+		  			]
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
+				break;
+			case "J":
+				positions = [
+					[
+						{ x: this.position[0].x - 2, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y },
+		  				{ x: this.position[2].x + 1, y: this.position[2].y },
+		  				{ x: this.position[3].x, y: this.position[3].y + 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 1, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y },
+		  				{ x: this.position[2].x, y: this.position[2].y + 2 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y + 1 }
+		  			],
+		  			[
+						{ x: this.position[0].x + 2, y: this.position[0].y },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x - 1, y: this.position[2].y - 1 },
+		  				{ x: this.position[3].x, y: this.position[3].y - 2 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 1, y: this.position[0].y + 2 },
+		  				{ x: this.position[1].x, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y - 1 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+		  			],
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[1];
+					this.rotation = 2;
+				} else if (this.rotation === 2) {
+					newPosition = positions[2];
+					this.rotation = 3;
+				} else if (this.rotation === 3) {
+					newPosition = positions[3];
+					this.rotation = 0;
+				}
+				break;
+			case "L":
+				positions = [
+					[
+						{ x: this.position[0].x - 1, y: this.position[0].y - 2 },
+		  				{ x: this.position[1].x, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x + 1, y: this.position[2].y },
+		  				{ x: this.position[3].x, y: this.position[3].y + 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 2, y: this.position[0].y },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y + 2 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y + 1 }
+		  			],
+		  			[
+						{ x: this.position[0].x + 1, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y },
+		  				{ x: this.position[2].x - 1, y: this.position[2].y - 1 },
+		  				{ x: this.position[3].x, y: this.position[3].y - 2 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 2, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y },
+		  				{ x: this.position[2].x, y: this.position[2].y - 1 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+		  			],
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[1];
+					this.rotation = 2;
+				} else if (this.rotation === 2) {
+					newPosition = positions[2];
+					this.rotation = 3;
+				} else if (this.rotation === 3) {
+					newPosition = positions[3];
+					this.rotation = 0;
+				}
+				break;
+			case "SUPER":
+				positions = [
+					[
+						{ x: this.position[0].x + 4, y: this.position[0].y },
+		  				{ x: this.position[1].x + 3, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x + 2, y: this.position[2].y + 2 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y + 3 },
+		  				{ x: this.position[4].x, y: this.position[4].y + 4 },
+		  				{ x: this.position[5].x - 1, y: this.position[5].y + 5 },
+		  				{ x: this.position[6].x - 2, y: this.position[6].y + 6 },
+		  				{ x: this.position[7].x - 3, y: this.position[7].y + 7 }
+					],
+					[
+						{ x: this.position[0].x - 4, y: this.position[0].y },
+		  				{ x: this.position[1].x - 3, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x - 2, y: this.position[2].y - 2 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y - 3 },
+		  				{ x: this.position[4].x, y: this.position[4].y - 4 },
+		  				{ x: this.position[5].x + 1, y: this.position[5].y - 5 },
+		  				{ x: this.position[6].x + 2, y: this.position[6].y - 6 },
+		  				{ x: this.position[7].x + 3, y: this.position[7].y - 7 }
+		  			]
+				];
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
+				break;
 			default:
 				break;
 	  	}
 	  	this.position = newPosition;
   	}
 
-  	counterClockwise(){
+  	clockwise(){
   		let newPosition = this.position;
   		switch(this.type){
-	  // 		case "O":
-	  // 			newPosition = [
-	  // 				{ x: , y: },
-	  // 				{ x: , y: },
-	  // 				{ x: , y: },
-	  // 				{ x: , y: }
-	  // 			]
-			// 	break;
-			// case "I":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "T":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "S":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "Z":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "J":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "L":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
-			// case "SUPER":
-			// 	newPosition = [
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: },
-			// 		{ x: , y: }
-			// 	]
-			// 	break;
+	  		case "O":
+				break;
+			case "I":
+				let positions = [
+					[
+						{ x: this.position[0].x - 2, y: this.position[0].y - 3 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y - 2 },
+		  				{ x: this.position[2].x, y: this.position[2].y -1 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+					],
+					[
+						{ x: this.position[0].x + 2, y: this.position[0].y + 3 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y + 2 },
+		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			]
+				];
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
+				break;
+			case "T":
+				positions = [
+					[
+						{ x: this.position[0].x + 1, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y - 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 1, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y + 1 }
+		  			],
+		  			[
+						{ x: this.position[0].x - 1, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y + 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 1, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y - 1 }
+		  			],
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 3;
+				} else if (this.rotation === 3) {
+					newPosition = positions[1];
+					this.rotation = 2;
+				} else if (this.rotation === 2) {
+					newPosition = positions[2];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[3];
+					this.rotation = 0;
+				}
+				break;
+			case "S":
+				positions = [
+					[
+						{ x: this.position[0].x - 2, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x - 1, y: this.position[2].y },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 2, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x + 1, y: this.position[2].y },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			]
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
+				break;
+			case "Z":
+				positions = [
+					[
+						{ x: this.position[0].x + 2, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y },
+		  				{ x: this.position[2].x , y: this.position[2].y - 1 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 2, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y },
+		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y }
+		  			]
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
+				break;
+			case "J":
+				positions = [
+					[
+						{ x: this.position[0].x + 1, y: this.position[0].y - 2 },
+		  				{ x: this.position[1].x, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 2, y: this.position[0].y },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x + 1, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x, y: this.position[3].y + 2 }
+		  			],
+		  			[
+						{ x: this.position[0].x - 1, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y },
+		  				{ x: this.position[2].x, y: this.position[2].y - 2 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y - 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 2, y: this.position[0].y + 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y },
+		  				{ x: this.position[2].x - 1, y: this.position[2].y },
+		  				{ x: this.position[3].x, y: this.position[3].y - 1 }
+		  			],
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 3;
+				} else if (this.rotation === 3) {
+					newPosition = positions[1];
+					this.rotation = 2;
+				} else if (this.rotation === 2) {
+					newPosition = positions[2];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[3];
+					this.rotation = 0;
+				}
+				break;
+			case "L":
+				positions = [
+					[
+						{ x: this.position[0].x + 2, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x + 1, y: this.position[1].y },
+		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y }
+		  			],
+		  			[
+		  				{ x: this.position[0].x - 1, y: this.position[0].y - 1 },
+		  				{ x: this.position[1].x, y: this.position[1].y },
+		  				{ x: this.position[2].x + 1, y: this.position[2].y + 1 },
+		  				{ x: this.position[3].x, y: this.position[3].y + 2 }
+		  			],
+		  			[
+						{ x: this.position[0].x - 2, y: this.position[0].y },
+		  				{ x: this.position[1].x - 1, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x, y: this.position[2].y - 2 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y - 1 }
+		  			],
+		  			[
+		  				{ x: this.position[0].x + 1, y: this.position[0].y + 2 },
+		  				{ x: this.position[1].x, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x - 1, y: this.position[2].y },
+		  				{ x: this.position[3].x, y: this.position[3].y - 1 }
+		  			],
+				]
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 3;
+				} else if (this.rotation === 3) {
+					newPosition = positions[1];
+					this.rotation = 2;
+				} else if (this.rotation === 2) {
+					newPosition = positions[2];
+					this.rotation = 1;
+				} else if (this.rotation === 1) {
+					newPosition = positions[3];
+					this.rotation = 0;
+				}
+				break;
+			case "SUPER":
+				positions = [
+					[
+						{ x: this.position[0].x + 4, y: this.position[0].y },
+		  				{ x: this.position[1].x + 3, y: this.position[1].y + 1 },
+		  				{ x: this.position[2].x + 2, y: this.position[2].y + 2 },
+		  				{ x: this.position[3].x + 1, y: this.position[3].y + 3 },
+		  				{ x: this.position[4].x, y: this.position[4].y + 4 },
+		  				{ x: this.position[5].x - 1, y: this.position[5].y + 5 },
+		  				{ x: this.position[6].x - 2, y: this.position[6].y + 6 },
+		  				{ x: this.position[7].x - 3, y: this.position[7].y + 7 }
+					],
+					[
+						{ x: this.position[0].x - 4, y: this.position[0].y },
+		  				{ x: this.position[1].x - 3, y: this.position[1].y - 1 },
+		  				{ x: this.position[2].x - 2, y: this.position[2].y - 2 },
+		  				{ x: this.position[3].x - 1, y: this.position[3].y - 3 },
+		  				{ x: this.position[4].x, y: this.position[4].y - 4 },
+		  				{ x: this.position[5].x + 1, y: this.position[5].y - 5 },
+		  				{ x: this.position[6].x + 2, y: this.position[6].y - 6 },
+		  				{ x: this.position[7].x + 3, y: this.position[7].y - 7 }
+		  			]
+				];
+				if(this.rotation === 0){
+					newPosition = positions[0];
+					this.rotation = 1;
+				} else {
+					newPosition = positions[1];
+					this.rotation = 0;
+				}
+				break;
 			default:
 				break;
 	  	}
@@ -361,6 +691,8 @@ class Piece {
 				  		break;
 		  		}
 	  		}
+	  	} else if (input === 40){
+	  		this.fall(board);
 	  	}
 	}
 }

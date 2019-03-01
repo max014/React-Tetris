@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Block from '../../components/Block/Block';
+import Dash from '../../components/Dash/Dash';
 import * as actionTypes from '../../store/actions/actionTypes';
 import styles from './Display.module.css';
 
@@ -21,10 +22,16 @@ class Display extends Component {
 		// Controller
 		document.addEventListener('keydown', this.keydownHandler);
 		// Game Loop
-		this.interval = setInterval(() => {
-			this.props.update();
-			this.setState({ time: Date.now()});
-		}, this.props.refreshRate);
+		if(!this.state.paused){
+			this.interval = setInterval(() => {
+				this.props.update();
+				this.setState({ time: Date.now()});
+				// if game ends
+				if(this.props.lost){
+					this.props.end();
+				}
+			}, this.props.refreshRate);
+		}
 	}
 
 	componentWillUnmount() {
@@ -51,6 +58,7 @@ class Display extends Component {
 
 		return (
 			<div className={styles.Display} style={inlineStyles}>
+				<Dash />
 				{board}
 			</div>
 		);
@@ -62,14 +70,16 @@ const mapStateToProps = state => {
     return {
         board: state.board,
         height: state.height,
-        step: state.step
+        step: state.step,
+        lost: state.lost
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         update: () => dispatch({type: actionTypes.UPDATE}),
-        setInput: (input) => dispatch({type: actionTypes.SET_INPUT, input: input})
+        setInput: (input) => dispatch({type: actionTypes.SET_INPUT, input: input}),
+        end: () => dispatch({type: actionTypes.END})
     };
 }
 
