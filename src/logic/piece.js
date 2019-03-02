@@ -188,7 +188,7 @@ class Piece {
 	  	return true;
 	}
 
-  	counterClockwise(){
+  	counterClockwise(board){
   		let newPosition = this.position;
 
   		switch(this.type){
@@ -420,10 +420,15 @@ class Piece {
 			default:
 				break;
 	  	}
+	  	for(let i=0; i<newPosition.length; i++){
+	  		if(board[newPosition[i].y][newPosition[i].x] !== 0){
+	  			return false;
+	  		}
+	  	}
 	  	this.position = newPosition;
   	}
 
-  	clockwise(){
+  	clockwise(board){
   		let newPosition = this.position;
   		switch(this.type){
 	  		case "O":
@@ -654,6 +659,11 @@ class Piece {
 			default:
 				break;
 	  	}
+	  	for(let i=0; i<newPosition.length; i++){
+	  		if(board[newPosition[i].y][newPosition[i].x] !== 0){
+	  			return false;
+	  		}
+	  	}
 	  	this.position = newPosition;
   	}
 
@@ -682,10 +692,10 @@ class Piece {
 	  		if(true){
 	  			switch(input){
 		  			case 83:
-		  				this.counterClockwise();
+		  				this.counterClockwise(board);
 		  				break;
 				  	case 68:
-		  				this.clockwise();
+		  				this.clockwise(board);
 		  				break;
 				  	default:
 				  		break;
