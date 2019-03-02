@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import axios from '../../axios';
 import styles from './HighScores.module.css';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions/actionTypes';
+import * as actions from '../../store/actions/index';
 
 class HighScores extends Component {
 
 	componentDidMount() {
-		axios.get( '/scores.json')
-            .then( response => {
-            	this.props.setScores(Object.entries(response.data));
-            } )
-            .catch( error => {
-                
-            } );
+		this.props.getScores();
 	}
 
 	render() {
@@ -41,7 +34,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setScores: (scores) => dispatch({type: actionTypes.SET_SCORES, scores: scores})
+        getScores: (scores) => dispatch(actions.getScores())
     };
 }
 

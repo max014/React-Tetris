@@ -1,6 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateGame } from '../../logic/updateGame';
-import * as utility from '../../utility';
 
 const initialState = {
 	board: [[0,0,0,0,0,0,0,0,0,0],
@@ -108,9 +107,6 @@ const game = (state = initialState, action) => {
 				...state,
 				modalUp: true
 			};
-		case actionTypes.POST_SCORE:
-			utility.postScore(state.score);
-			return state;
 		case actionTypes.SET_SCORES:
 			const scores = action.scores;
 			return {

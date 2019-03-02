@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions/actionTypes';
 import * as utility from '../../utility';
 import styles from './Modal.module.css';
+import * as actions from '../../store/actions/index';
 
 class modal extends Component {
 	state = {
-		highScore: false
+		highScore: false,
+		name: 'Name'
 	}
 
 	componentDidMount() {
@@ -15,21 +17,33 @@ class modal extends Component {
 		}
 	}
 
+	handleChange(event) {
+		this.setState({name: event.target.value})
+	}
+
 	postAndReset = () => {
-		this.props.postScore();
+		this.props.postScore(this.props.score, this.state.name);
+		utility.deleteEleventhScore(this.props.scores);
 		this.props.startGame();
 	}
 
 	render() {
+		let input = null;
 		let button = <button onClick={this.props.startGame}>ReStart</button>;
 
 		if(this.state.highScore){
+			input = <input
+						type="text"
+						name="name"
+						value={this.state.name}
+						onChange={this.handleChange.bind(this)}/>;
 			button = <button onClick={this.postAndReset}>Post High Score</button>;
 		}
 
 		return (
 			<div className={styles.Modal}>
 				<h1>Score: {this.props.score}</h1>
+				{input}
 				{button}
 			</div>
 		);
@@ -45,7 +59,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        postScore: () => dispatch({type: actionTypes.POST_SCORE}),
+        postScore: (score, name) => dispatch(actions.postScore(score, name)),
         startGame: () => dispatch({type: actionTypes.START_GAME})
     };
 }

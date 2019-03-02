@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import thunk from 'redux-thunk';
 
 import gameReducer from './store/reducers/game'
 
-const store = createStore(gameReducer);
+const store = createStore(gameReducer, compose(
+	applyMiddleware(thunk)
+));
 
 const app = (
     <Provider store={store}>

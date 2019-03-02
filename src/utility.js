@@ -19,6 +19,18 @@ export const isHighScore = (score, scores) => {
 	}
 }
 
-export const postScore = (score) => {
-	axios.post( '/scores.json', {name: "max", score: score});
+export const deleteEleventhScore = (scores) => {
+	let sorted = [];
+	let unsorted = scores;
+	if(scores.length >= 9){
+		for(let i=0; i<9; i++){
+			sorted.push(Math.max(...unsorted));
+			unsorted.splice(unsorted.indexOf(Math.max(...unsorted)), 1);
+		}
+		
+		unsorted.map((score) => {
+			axios.delete( '/scores/' + score[0] + '.json');
+			return null;
+		});
+	}
 }
