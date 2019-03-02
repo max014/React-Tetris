@@ -18,8 +18,23 @@ export const getScores = () => {
 };
 
 export const setScores = (scores) => {
+	let scoresCopy = scores.map((score) => {
+		return score;
+	});
+	let unsorted = scores.map((score) => {
+		return score[1].score;
+	});
+	let sorted = [];
+
+	for(let i=0; i<scores.length; i++){
+		let HighestScoreIndex = unsorted.indexOf(Math.max(...unsorted))
+		sorted.push(scoresCopy[HighestScoreIndex]);
+		unsorted.splice(HighestScoreIndex, 1);
+		scoresCopy.splice(HighestScoreIndex, 1);
+	}
+
 	return {
 		type: actionTypes.SET_SCORES,
-		scores: scores
+		scores: sorted
 	};
 };

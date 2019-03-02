@@ -20,15 +20,25 @@ export const isHighScore = (score, scores) => {
 }
 
 export const deleteEleventhScore = (scores) => {
-	let sorted = [];
-	let unsorted = scores;
 	if(scores.length >= 9){
+		let scoresCopy = scores.map((score) => {
+			return score;
+		});
+		let unsorted = scores.map((score) => {
+			return score[1].score;
+		});
+		let sorted = [];
+
 		for(let i=0; i<9; i++){
-			sorted.push(Math.max(...unsorted));
-			unsorted.splice(unsorted.indexOf(Math.max(...unsorted)), 1);
+			let HighestScoreIndex = unsorted.indexOf(Math.max(...unsorted))
+			sorted.push(scoresCopy[HighestScoreIndex]);
+			unsorted.splice(HighestScoreIndex, 1);
+			scoresCopy.splice(HighestScoreIndex, 1);
 		}
+
+		console.log(scoresCopy);
 		
-		unsorted.map((score) => {
+		scoresCopy.map((score) => {
 			axios.delete( '/scores/' + score[0] + '.json');
 			return null;
 		});

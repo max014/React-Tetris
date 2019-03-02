@@ -1,4 +1,9 @@
 .Dash{
 	position: absolute;
 	left: 110%;
+	top: 5%;
+	width: 20vw;
+	padding-left: 20px;
+	border: 4px solid white;
+	background: linear-gradient(to left, #111, #222);
 }

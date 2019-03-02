@@ -8,7 +8,7 @@ import * as actions from '../../store/actions/index';
 class modal extends Component {
 	state = {
 		highScore: false,
-		name: 'Name'
+		name: "name"
 	}
 
 	componentDidMount() {
@@ -29,15 +29,21 @@ class modal extends Component {
 
 	render() {
 		let input = null;
-		let button = <button onClick={this.props.startGame}>ReStart</button>;
+		let button = <div className={styles.button} onClick={this.props.startGame}>ReStart</div>;
 
 		if(this.state.highScore){
-			input = <input
-						type="text"
-						name="name"
-						value={this.state.name}
-						onChange={this.handleChange.bind(this)}/>;
-			button = <button onClick={this.postAndReset}>Post High Score</button>;
+			input = (
+						<div>
+							<h4>You made the board!</h4>
+							<span>Name:</span>
+							<input
+								type="text"
+								name="name"
+								value={this.state.name}
+								onChange={this.handleChange.bind(this)}/>
+						</div>
+					);
+			button = <div className={styles.button} onClick={this.postAndReset}>Post High Score</div>;
 		}
 
 		return (

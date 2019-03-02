@@ -3,4 +3,34 @@
 	width: 35vw;
 	left: 50%;
 	top: 30%;
+	background-color: black;
+	border: 4px solid white;
+	transform: translateX(-50%);
+}
+.Modal h1,
+.Modal h4{
+	color: white;
+	text-align: center;
+}
+.Modal .button{
+	text-align: center;
+	background-color: #ccc;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.Modal span{
+	margin-left: 20px;
+	color: white;
+}
+
+.Modal input{
+	text-align: center;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	font-size: 20px;
 }
