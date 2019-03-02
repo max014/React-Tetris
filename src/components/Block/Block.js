@@ -38,6 +38,7 @@ class Block extends Component {
 
     return (
       <div className={styles.Block} style={inlineStyles}>
+        <div className={styles.Inner}></div>
       </div>
     );
   }

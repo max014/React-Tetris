@@ -4,6 +4,7 @@ import Block from '../../components/Block/Block';
 import Dash from '../../components/Dash/Dash';
 import * as actionTypes from '../../store/actions/actionTypes';
 import styles from './Display.module.css';
+import Instructions from '../../components/Instructions/Instructions';
 
 class Display extends Component {
 	constructor() {
@@ -59,6 +60,7 @@ class Display extends Component {
 		return (
 			<div className={styles.Display} style={inlineStyles}>
 				<Dash />
+				<Instructions />
 				{board}
 			</div>
 		);
