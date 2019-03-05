@@ -190,6 +190,7 @@ class Piece {
 
   	counterClockwise(board){
   		let newPosition = this.position;
+  		let newRotation = this.rotation;
 
   		switch(this.type){
 	  		case "O":
@@ -211,10 +212,10 @@ class Piece {
 				];
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "T":
@@ -246,16 +247,16 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[1];
-					this.rotation = 2;
+					newRotation = 2;
 				} else if (this.rotation === 2) {
 					newPosition = positions[2];
-					this.rotation = 3;
+					newRotation = 3;
 				} else if (this.rotation === 3) {
 					newPosition = positions[3];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "S":
@@ -275,10 +276,10 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "Z":
@@ -298,10 +299,10 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "J":
@@ -333,16 +334,16 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[1];
-					this.rotation = 2;
+					newRotation = 2;
 				} else if (this.rotation === 2) {
 					newPosition = positions[2];
-					this.rotation = 3;
+					newRotation = 3;
 				} else if (this.rotation === 3) {
 					newPosition = positions[3];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "L":
@@ -374,16 +375,16 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[1];
-					this.rotation = 2;
+					newRotation = 2;
 				} else if (this.rotation === 2) {
 					newPosition = positions[2];
-					this.rotation = 3;
+					newRotation = 3;
 				} else if (this.rotation === 3) {
 					newPosition = positions[3];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "SUPER":
@@ -411,10 +412,10 @@ class Piece {
 				];
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			default:
@@ -426,10 +427,13 @@ class Piece {
 	  		}
 	  	}
 	  	this.position = newPosition;
+	  	this.rotation = newRotation;
   	}
 
   	clockwise(board){
   		let newPosition = this.position;
+  		let newRotation = this.rotation;
+
   		switch(this.type){
 	  		case "O":
 				break;
@@ -450,10 +454,10 @@ class Piece {
 				];
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "T":
@@ -485,16 +489,16 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 3;
+					newRotation = 3;
 				} else if (this.rotation === 3) {
 					newPosition = positions[1];
-					this.rotation = 2;
+					newRotation = 2;
 				} else if (this.rotation === 2) {
 					newPosition = positions[2];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[3];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "S":
@@ -514,10 +518,10 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "Z":
@@ -537,10 +541,10 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "J":
@@ -572,16 +576,16 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 3;
+					newRotation = 3;
 				} else if (this.rotation === 3) {
 					newPosition = positions[1];
-					this.rotation = 2;
+					newRotation = 2;
 				} else if (this.rotation === 2) {
 					newPosition = positions[2];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[3];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "L":
@@ -613,16 +617,16 @@ class Piece {
 				]
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 3;
+					newRotation = 3;
 				} else if (this.rotation === 3) {
 					newPosition = positions[1];
-					this.rotation = 2;
+					newRotation = 2;
 				} else if (this.rotation === 2) {
 					newPosition = positions[2];
-					this.rotation = 1;
+					newRotation = 1;
 				} else if (this.rotation === 1) {
 					newPosition = positions[3];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			case "SUPER":
@@ -650,10 +654,10 @@ class Piece {
 				];
 				if(this.rotation === 0){
 					newPosition = positions[0];
-					this.rotation = 1;
+					newRotation = 1;
 				} else {
 					newPosition = positions[1];
-					this.rotation = 0;
+					newRotation = 0;
 				}
 				break;
 			default:
@@ -665,6 +669,7 @@ class Piece {
 	  		}
 	  	}
 	  	this.position = newPosition;
+	  	this.rotation = newRotation;
   	}
 
 	move(input, board) {

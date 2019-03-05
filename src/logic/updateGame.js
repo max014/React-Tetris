@@ -37,28 +37,28 @@ const checkForLines = (board) => {
 	let score = 0;
 	switch(lines){
 		case 1:
-			score = 10;
+			score = 40;
 			break;
 		case 2:
-			score = 30;
-			break;
-		case 3:
-			score = 50;
-			break;
-		case 4:
 			score = 100;
 			break;
+		case 3:
+			score = 300;
+			break;
+		case 4:
+			score = 1200;
+			break;
 		case 5:
-			score = 150;
+			score = 5000;
 			break;
 		case 6:
-			score = 250;
+			score = 10000;
 			break;
 		case 7:
-			score = 500;
+			score = 35000;
 			break;
 		case 8:
-			score = 1000;
+			score = 50000;
 			break;
 		default:
 			break;
