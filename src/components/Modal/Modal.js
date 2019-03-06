@@ -37,6 +37,7 @@ class modal extends Component {
 							<h4>You made the board!</h4>
 							<span>Name:</span>
 							<input
+								maxlength="15"
 								type="text"
 								name="name"
 								value={this.state.name}
