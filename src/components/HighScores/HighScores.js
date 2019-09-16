@@ -12,7 +12,7 @@ class HighScores extends Component {
 	render() {
 		const scores = this.props.scores.map((score, index) => {
 			return (
-				<div key={index}>
+				<div key={index} className={styles.container}>
 					<h4>{score[1].name + " - " + score[1].score}</h4>
 				</div>
 			)

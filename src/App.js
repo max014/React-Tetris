@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styles from './App.module.css';
-import Background from './containers/Background/Background';
 import Display from './containers/Display/Display';
 import HighScores from './components/HighScores/HighScores';
 import { connect } from 'react-redux';
 import Modal from './components/Modal/Modal';
+import Dash from './components/Dash/Dash';
+import Instructions from './components/Instructions/Instructions';
 
 class App extends Component {
 	render() {
@@ -15,12 +16,19 @@ class App extends Component {
 			display = <Modal />;
 		}
 		return (
-			<div className={styles.App}>
-				<Background />
-					<HighScores />
+			<React.Fragment>
+				<div className={styles.App}>
+					<HighScores className={styles.Main} />
 					{display}
-				<Background />
-			</div>
+					<div style={{display: 'flex', flexDirection: 'column', width: '300px'}}>
+						<Dash />
+						<Instructions />
+					</div>
+				</div>
+				<div className={styles.TooSmall}>
+					<h2>This screen is too narrow.<br/> Please use a computer.</h2>
+				</div>
+			</React.Fragment>
 		);
 	}
 }

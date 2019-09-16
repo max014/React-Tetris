@@ -1,11 +1,13 @@
 .Modal{
-	position: absolute;
-	width: 35vw;
-	left: 50%;
-	top: 30%;
-	background-color: black;
+	width: 320px;
+	height: 175px;
+	transform: translateY(-50%);
+	box-sizing: border-box;
+	flex-grow: 0;
+	flex-shrink: 0;
+	margin: 50vh 25px 0;
+	background: linear-gradient(to right, #111, #222);
 	border: 4px solid white;
-	transform: translateX(-50%);
 }
 .Modal h1,
 .Modal h4{

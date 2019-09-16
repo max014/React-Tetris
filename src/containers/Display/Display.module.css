@@ -2,4 +2,6 @@
 	position: relative;
 	flex-grow: 0;
 	flex-shrink: 0.1;
+	background-color: #fff;
+	margin: 0 25px;
 }

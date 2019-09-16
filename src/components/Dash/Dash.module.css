@@ -1,8 +1,5 @@
 .Dash{
-	position: absolute;
-	left: 110%;
-	top: 5%;
-	width: 25vw;
+	margin: 25px 0;
 	box-sizing: border-box;
 	padding-left: 20px;
 	border: 4px solid white;
