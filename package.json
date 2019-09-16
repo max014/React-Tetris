@@ -2,7 +2,6 @@
   "name": "tetris",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://max014.github.io/React-Tetris",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.3",
@@ -28,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "webpack-bundle-analyzer": "^3.3.2"
+  }
 }

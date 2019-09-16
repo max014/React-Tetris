@@ -4,13 +4,13 @@ import * as actionTypes from './actionTypes';
 
 export const postScore = (score, name) => {
 	return dispatch => {
-		axios.post( '/scores.json', {name: name, score: score});
+		axios.post( '/tetris', {name: name, score: score});
 	};
 };
 
 export const getScores = () => {
 	return dispatch => {
-		axios.get('/scores.json')
+		axios.get('/tetris')
             .then( response => {
             	dispatch(setScores(Object.entries(response.data)));
             } )

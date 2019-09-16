@@ -1,39 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Block.module.css';
+import colorPallets from './colorPallets';
 
 class Block extends Component {
 
   render() {
-    const color = () => {
-      switch(this.props.color){
-        case 1:
-          return "red";
-        case 2:
-          return "blue";
-        case 3:
-          return "green";
-        case 4:
-          return "purple";
-        case 5:
-          return "orange";
-        case 6:
-          return "pink";
-        case 7:
-          return "gray";
-        case 8:
-          return "linear-gradient(to right, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100))";
-        default:
-          return null;
-      }
-    };
     
     const inlineStyles = {
       width: this.props.step, 
       height: this.props.step,
       bottom: this.props.y * this.props.step,
       left: this.props.x * this.props.step,
-      background: color()
+      background: colorPallets[this.props.level][this.props.color]
     };
 
     return (
@@ -46,6 +25,7 @@ class Block extends Component {
 
 const mapStateToProps = state => {
     return {
+        level: state.level,
         step: state.step
     };
 }

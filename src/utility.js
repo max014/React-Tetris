@@ -39,7 +39,7 @@ export const deleteEleventhScore = (scores) => {
 		console.log(scoresCopy);
 		
 		scoresCopy.map((score) => {
-			axios.delete( '/scores/' + score[0] + '.json');
+			axios.delete( '/tetris/' + score[1]._id);
 			return null;
 		});
 	}
