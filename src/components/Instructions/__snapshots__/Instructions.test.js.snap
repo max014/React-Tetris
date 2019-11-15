@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Instructions renders properly 1`] = `
+<div
+  className="Instructions"
+>
+  <h4>
+    Rotate
+  </h4>
+  <div
+    className="Container"
+  >
+    <div
+      className="Key"
+    >
+      S
+    </div>
+    <div
+      className="Key"
+    >
+      D
+    </div>
+  </div>
+</div>
+`;

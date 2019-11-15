@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display renders properly 1`] = `
+<div
+  className="Display"
+  style={
+    Object {
+      "height": 800,
+      "width": 200,
+    }
+  }
+/>
+`;

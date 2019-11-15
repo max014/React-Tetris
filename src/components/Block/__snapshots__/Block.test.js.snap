@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Block renders properly 1`] = `
+<div
+  className="Block"
+  style={
+    Object {
+      "background": "#0FA6FF",
+      "bottom": 200,
+      "height": 20,
+      "left": 200,
+      "width": 20,
+    }
+  }
+>
+  <div
+    className="Inner"
+  />
+</div>
+`;

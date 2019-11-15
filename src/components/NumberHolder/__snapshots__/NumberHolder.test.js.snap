@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberHolder renders properly 1`] = `
+<div
+  className="NumberHolder"
+>
+  <h3>
+    string
+  </h3>
+  <h3>
+    0
+  </h3>
+</div>
+`;

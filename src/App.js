@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import styles from './App.module.css';
-import Display from './containers/Display/Display';
+import Display from './components/Display/Display';
 import HighScores from './components/HighScores/HighScores';
 import { connect } from 'react-redux';
 import Modal from './components/Modal/Modal';
 import Dash from './components/Dash/Dash';
 import Instructions from './components/Instructions/Instructions';
 
-class App extends Component {
+export class App extends Component {
 	render() {
-		let display = null;
-		if(!this.props.modalUp){
-			display = <Display refreshRate={1000/30}/>
-		} else {
-			display = <Modal />;
-		}
+		let display = this.props.modalUp ? <Modal /> : <Display refreshRate={1000/30}/>;
 		return (
 			<React.Fragment>
 				<div className={styles.App}>

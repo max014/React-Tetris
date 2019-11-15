@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dash renders properly 1`] = `
+<div
+  className="Dash"
+>
+  <NumberHolder
+    number={1}
+    title="Level"
+  />
+  <NumberHolder
+    number={100}
+    title="Score"
+  />
+  <NumberHolder
+    number={15}
+    title="Lines"
+  />
+</div>
+`;

@@ -1,0 +1,1857 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`constructs each piece based on type 1`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`constructs each piece based on type 2`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 23,
+    },
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "I",
+}
+`;
+
+exports[`constructs each piece based on type 3`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "T",
+}
+`;
+
+exports[`constructs each piece based on type 4`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "S",
+}
+`;
+
+exports[`constructs each piece based on type 5`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "Z",
+}
+`;
+
+exports[`constructs each piece based on type 6`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "J",
+}
+`;
+
+exports[`constructs each piece based on type 7`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "L",
+}
+`;
+
+exports[`constructs each piece based on type 8`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 1,
+      "y": 20,
+    },
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 6,
+      "y": 20,
+    },
+    Object {
+      "x": 7,
+      "y": 20,
+    },
+    Object {
+      "x": 8,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "SUPER",
+}
+`;
+
+exports[`moves piece based on input 1`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`moves piece based on input 2`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`moves piece based on input 3`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`moves piece based on input 4`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`moves piece based on input 5`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+    Object {
+      "x": 5,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`moves piece based on input 6`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 23,
+    },
+    Object {
+      "x": 3,
+      "y": 22,
+    },
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "I",
+}
+`;
+
+exports[`moves piece based on input 7`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 23,
+    },
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "I",
+}
+`;
+
+exports[`moves piece based on input 8`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 1,
+  "type": "I",
+}
+`;
+
+exports[`moves piece based on input 9`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 23,
+    },
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "I",
+}
+`;
+
+exports[`moves piece based on input 10`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "I",
+}
+`;
+
+exports[`moves piece based on input 11`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "T",
+}
+`;
+
+exports[`moves piece based on input 12`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "T",
+}
+`;
+
+exports[`moves piece based on input 13`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+  ],
+  "rotation": 1,
+  "type": "T",
+}
+`;
+
+exports[`moves piece based on input 14`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "T",
+}
+`;
+
+exports[`moves piece based on input 15`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 19,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+    Object {
+      "x": 5,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "T",
+}
+`;
+
+exports[`moves piece based on input 16`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "S",
+}
+`;
+
+exports[`moves piece based on input 17`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "S",
+}
+`;
+
+exports[`moves piece based on input 18`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 1,
+  "type": "S",
+}
+`;
+
+exports[`moves piece based on input 19`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "S",
+}
+`;
+
+exports[`moves piece based on input 20`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "S",
+}
+`;
+
+exports[`moves piece based on input 21`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 22,
+    },
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "Z",
+}
+`;
+
+exports[`moves piece based on input 22`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "Z",
+}
+`;
+
+exports[`moves piece based on input 23`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 6,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 1,
+  "type": "Z",
+}
+`;
+
+exports[`moves piece based on input 24`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "Z",
+}
+`;
+
+exports[`moves piece based on input 25`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "Z",
+}
+`;
+
+exports[`moves piece based on input 26`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "J",
+}
+`;
+
+exports[`moves piece based on input 27`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "J",
+}
+`;
+
+exports[`moves piece based on input 28`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+  ],
+  "rotation": 1,
+  "type": "J",
+}
+`;
+
+exports[`moves piece based on input 29`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "J",
+}
+`;
+
+exports[`moves piece based on input 30`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+    Object {
+      "x": 5,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "J",
+}
+`;
+
+exports[`moves piece based on input 31`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 22,
+    },
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "L",
+}
+`;
+
+exports[`moves piece based on input 32`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "L",
+}
+`;
+
+exports[`moves piece based on input 33`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+  ],
+  "rotation": 1,
+  "type": "L",
+}
+`;
+
+exports[`moves piece based on input 34`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "L",
+}
+`;
+
+exports[`moves piece based on input 35`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+    Object {
+      "x": 5,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "L",
+}
+`;
+
+exports[`moves piece based on input 36`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 0,
+      "y": 20,
+    },
+    Object {
+      "x": 1,
+      "y": 20,
+    },
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 6,
+      "y": 20,
+    },
+    Object {
+      "x": 7,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "SUPER",
+}
+`;
+
+exports[`moves piece based on input 37`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 1,
+      "y": 20,
+    },
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 6,
+      "y": 20,
+    },
+    Object {
+      "x": 7,
+      "y": 20,
+    },
+    Object {
+      "x": 8,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "SUPER",
+}
+`;
+
+exports[`moves piece based on input 38`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 5,
+      "y": 23,
+    },
+    Object {
+      "x": 5,
+      "y": 24,
+    },
+    Object {
+      "x": 5,
+      "y": 25,
+    },
+    Object {
+      "x": 5,
+      "y": 26,
+    },
+    Object {
+      "x": 5,
+      "y": 27,
+    },
+  ],
+  "rotation": 1,
+  "type": "SUPER",
+}
+`;
+
+exports[`moves piece based on input 39`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 1,
+      "y": 20,
+    },
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 6,
+      "y": 20,
+    },
+    Object {
+      "x": 7,
+      "y": 20,
+    },
+    Object {
+      "x": 8,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "SUPER",
+}
+`;
+
+exports[`moves piece based on input 40`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 1,
+      "y": 19,
+    },
+    Object {
+      "x": 2,
+      "y": 19,
+    },
+    Object {
+      "x": 3,
+      "y": 19,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+    Object {
+      "x": 5,
+      "y": 19,
+    },
+    Object {
+      "x": 6,
+      "y": 19,
+    },
+    Object {
+      "x": 7,
+      "y": 19,
+    },
+    Object {
+      "x": 8,
+      "y": 19,
+    },
+  ],
+  "rotation": 0,
+  "type": "SUPER",
+}
+`;
+
+exports[`rotates pieces clockwise 1`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`rotates pieces clockwise 2`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 1,
+  "type": "I",
+}
+`;
+
+exports[`rotates pieces clockwise 3`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 19,
+    },
+  ],
+  "rotation": 3,
+  "type": "T",
+}
+`;
+
+exports[`rotates pieces clockwise 4`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 3,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 1,
+  "type": "S",
+}
+`;
+
+exports[`rotates pieces clockwise 5`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 6,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 1,
+  "type": "Z",
+}
+`;
+
+exports[`rotates pieces clockwise 6`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 6,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 3,
+  "type": "J",
+}
+`;
+
+exports[`rotates pieces clockwise 7`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 6,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 3,
+  "type": "L",
+}
+`;
+
+exports[`rotates pieces clockwise 8`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 5,
+      "y": 23,
+    },
+    Object {
+      "x": 5,
+      "y": 24,
+    },
+    Object {
+      "x": 5,
+      "y": 25,
+    },
+    Object {
+      "x": 5,
+      "y": 26,
+    },
+    Object {
+      "x": 5,
+      "y": 27,
+    },
+  ],
+  "rotation": 1,
+  "type": "SUPER",
+}
+`;
+
+exports[`rotates pieces counter clockwise 1`] = `
+Piece {
+  "active": true,
+  "color": 1,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "O",
+}
+`;
+
+exports[`rotates pieces counter clockwise 2`] = `
+Piece {
+  "active": true,
+  "color": 2,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 23,
+    },
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "I",
+}
+`;
+
+exports[`rotates pieces counter clockwise 3`] = `
+Piece {
+  "active": true,
+  "color": 3,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "T",
+}
+`;
+
+exports[`rotates pieces counter clockwise 4`] = `
+Piece {
+  "active": true,
+  "color": 4,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "S",
+}
+`;
+
+exports[`rotates pieces counter clockwise 5`] = `
+Piece {
+  "active": true,
+  "color": 5,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "Z",
+}
+`;
+
+exports[`rotates pieces counter clockwise 6`] = `
+Piece {
+  "active": true,
+  "color": 6,
+  "position": Array [
+    Object {
+      "x": 5,
+      "y": 22,
+    },
+    Object {
+      "x": 5,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "J",
+}
+`;
+
+exports[`rotates pieces counter clockwise 7`] = `
+Piece {
+  "active": true,
+  "color": 7,
+  "position": Array [
+    Object {
+      "x": 4,
+      "y": 22,
+    },
+    Object {
+      "x": 4,
+      "y": 21,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "L",
+}
+`;
+
+exports[`rotates pieces counter clockwise 8`] = `
+Piece {
+  "active": true,
+  "color": 8,
+  "position": Array [
+    Object {
+      "x": 1,
+      "y": 20,
+    },
+    Object {
+      "x": 2,
+      "y": 20,
+    },
+    Object {
+      "x": 3,
+      "y": 20,
+    },
+    Object {
+      "x": 4,
+      "y": 20,
+    },
+    Object {
+      "x": 5,
+      "y": 20,
+    },
+    Object {
+      "x": 6,
+      "y": 20,
+    },
+    Object {
+      "x": 7,
+      "y": 20,
+    },
+    Object {
+      "x": 8,
+      "y": 20,
+    },
+  ],
+  "rotation": 0,
+  "type": "SUPER",
+}
+`;

@@ -86,9 +86,7 @@ class Piece {
   }
 
 	canFall(board) {
-		const ys = this.position.map((block) => {
-			return block.y;
-		});
+		const ys = this.position.map(block => block.y);
 		const lowestPoint = Math.min(...ys);
 		if(lowestPoint === 0){
 			return false;
@@ -143,19 +141,13 @@ class Piece {
 	}
 
 	canMoveSideways(input, board) {
-	  	const xs = this.position.map((block) => {
-	  		return block.x;
-	  	});
+	  	const xs = this.position.map(block => block.x);
 	  	const leftestPoint = Math.min(...xs);
 	  	const rightestPoint = Math.max(...xs);
-	  	if(input === 37){
-	  		if(leftestPoint === 0){
-	  			return false;
-	  		}
-	  	} else if (input === 39){
-	  		if(rightestPoint === 9){
-	  			return false;
-	  		}
+	  	if(input === 37 && leftestPoint === 0){
+	  		return false;
+	  	} else if (input === 39 && rightestPoint === 9){
+	  		return false;
 	  	}
 
 	  	let future = null;
@@ -190,13 +182,14 @@ class Piece {
 
   	counterClockwise(board){
   		let newPosition = this.position;
-  		let newRotation = this.rotation;
+		let newRotation = this.rotation;
+		let positions;
 
   		switch(this.type){
 	  		case "O":
 				break;
 			case "I":
-				let positions = [
+				positions = [
 					[
 						{ x: this.position[0].x - 2, y: this.position[0].y - 3 },
 		  				{ x: this.position[1].x - 1, y: this.position[1].y - 2 },
@@ -432,13 +425,14 @@ class Piece {
 
   	clockwise(board){
   		let newPosition = this.position;
-  		let newRotation = this.rotation;
+		let newRotation = this.rotation;
+		let positions;
 
   		switch(this.type){
 	  		case "O":
 				break;
 			case "I":
-				let positions = [
+				positions = [
 					[
 						{ x: this.position[0].x - 2, y: this.position[0].y - 3 },
 		  				{ x: this.position[1].x - 1, y: this.position[1].y - 2 },

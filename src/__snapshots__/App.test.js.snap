@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App when \`modalUp\` prop is false renders properly 1`] = `
+<Fragment>
+  <div
+    className="App"
+  >
+    <Connect(HighScores)
+      className="Main"
+    />
+    <Connect(Display)
+      refreshRate={33.333333333333336}
+    />
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "width": "300px",
+        }
+      }
+    >
+      <Connect(Dash) />
+      <Instructions />
+    </div>
+  </div>
+  <div
+    className="TooSmall"
+  >
+    <h2>
+      This screen is too narrow.
+      <br />
+       Please use a computer.
+    </h2>
+  </div>
+</Fragment>
+`;
+
+exports[`App when \`modalUp\` prop is true renders properly 1`] = `
+<Fragment>
+  <div
+    className="App"
+  >
+    <Connect(HighScores)
+      className="Main"
+    />
+    <Connect(Modal) />
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "flexDirection": "column",
+          "width": "300px",
+        }
+      }
+    >
+      <Connect(Dash) />
+      <Instructions />
+    </div>
+  </div>
+  <div
+    className="TooSmall"
+  >
+    <h2>
+      This screen is too narrow.
+      <br />
+       Please use a computer.
+    </h2>
+  </div>
+</Fragment>
+`;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Block from '../../components/Block/Block';
+import Block from '../Block/Block';
 import * as actionTypes from '../../store/actions/actionTypes';
 import styles from './Display.module.css';
 
-class Display extends Component {
+export class Display extends Component {
 	constructor() {
 	    super();
 	    this.keydownHandler = this.keydownHandler.bind(this);

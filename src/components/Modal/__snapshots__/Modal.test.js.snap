@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders properly 1`] = `
+<div
+  className="Modal"
+>
+  <h1>
+    Score: 
+    500000
+  </h1>
+  <div>
+    <h4>
+      You made the board!
+    </h4>
+    <span>
+      Name:
+    </span>
+    <input
+      maxlength="15"
+      name="name"
+      onChange={[Function]}
+      type="text"
+      value="name"
+    />
+  </div>
+  <div
+    className="button"
+    id="btn-post"
+    onClick={[Function]}
+  >
+    Post High Score
+  </div>
+</div>
+`;

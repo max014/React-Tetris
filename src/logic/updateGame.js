@@ -91,48 +91,29 @@ export const updateGame = (state) => {
 	let newPiecesArray = state.pieces;
 
 	// array of only active piece
-	const activePieces = state.pieces.filter((piece) => {
-		return piece.active;
-	});
+	const activePieces = state.pieces.filter(piece => piece.active);
 
-	// add piece if there are no active pieces
 	if(activePieces.length === 0){
+		// add piece if there are no active pieces
 		const piece = new Piece(randomPiece());
 		newPiecesArray = state.pieces.concat(piece);
-	}
-	//
+	} else { // move active piece
+		const activePiece = activePieces[0];
 
-	// move active pieces
-	activePieces.map((piece) => {
+		// remove pevious position from board
+		activePiece.position.forEach(block => newBoard[block.y][block.x] = 0);
+
+		// update activePiece
 		if(state.input){
-			piece.position.map((block) => { // remove pevious position from board
-				newBoard[block.y][block.x] = 0;
-				return null;
-			});
-
-			piece.move(state.input, newBoard); // update piece 
-
-			piece.position.map((block) => { // re-map piece to board
-				newBoard[block.y][block.x] = piece.color;
-				return null;
-			});
+			activePiece.move(state.input, newBoard);
 		}
 		if(iterator === 0){
-			piece.position.map((block) => { // remove pevious position from board
-				newBoard[block.y][block.x] = 0;
-				return null;
-			});
-
-			piece.fall(newBoard); // update piece 
-
-			piece.position.map((block) => { // re-map piece to board
-				newBoard[block.y][block.x] = piece.color;
-				return null;
-			});
+			activePiece.fall(newBoard);
 		}
-		return null;
-	});
 
+		// re-map activePiece to board
+		activePiece.position.forEach(block => newBoard[block.y][block.x] = activePiece.color);
+	}
 
 	// increment levels based on lines
 	if(newLines >= 80){
@@ -163,11 +144,10 @@ export const updateGame = (state) => {
 			newScore = newScore + (lineData.score * state.level * 10);
 		}
 		newLines = newLines + lineData.lines;
-		if(checkForDeath(newBoard)){ // reset when you lose
+		if(checkForDeath(newBoard)){
 			newLost = true;
 		}
 	}
-	//
 
 	// set speed based on level
 	const levels = [30, 25, 20, 15, 10, 5, 3, 1, 0];

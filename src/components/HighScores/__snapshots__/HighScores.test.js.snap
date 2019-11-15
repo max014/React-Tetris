@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HighScores renders properly 1`] = `
+<div
+  className="HighScores"
+>
+  <h3>
+    High Scores
+  </h3>
+  <div
+    className="container"
+    key="0"
+  >
+    <h4>
+      Samsquanch - 416800
+    </h4>
+  </div>
+  <div
+    className="container"
+    key="1"
+  >
+    <h4>
+      Samsquanch - 416800
+    </h4>
+  </div>
+  <div
+    className="container"
+    key="2"
+  >
+    <h4>
+      Samsquanch - 416800
+    </h4>
+  </div>
+</div>
+`;

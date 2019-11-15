@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 import styles from './HighScores.module.css';
 import { connect } from 'react-redux';
-import * as actions from '../../store/actions/index';
+import * as actions from '../../store/actions/scoreBoard';
 
-class HighScores extends Component {
+export class HighScores extends Component {
 
 	componentDidMount() {
 		this.props.getScores();
 	}
 
 	render() {
-		const scores = this.props.scores.map((score, index) => {
-			return (
-				<div key={index} className={styles.container}>
-					<h4>{score[1].name + " - " + score[1].score}</h4>
-				</div>
-			)
-		});
 		return (
 			<div className={styles.HighScores}>
 				<h3>High Scores</h3>
-				{scores}
+				{this.props.scores.map((score, index) => (
+					<div key={index} className={styles.container}>
+						<h4>{score.name + " - " + score.score}</h4>
+					</div>
+				))}
 			</div>
 		);
 	}
@@ -34,7 +31,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getScores: (scores) => dispatch(actions.getScores())
+        getScores: () => dispatch(actions.getScores())
     };
 }
 
