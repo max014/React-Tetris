@@ -16,10 +16,10 @@ export const Block = props => (
 );
 
 const mapStateToProps = state => {
-    return {
-        level: state.level,
-        step: state.step
-    };
+  return {
+    level: state.level,
+    step: state.step
+  }
 }
 
 export default connect(mapStateToProps)(Block);

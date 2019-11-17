@@ -35,4 +35,14 @@ describe('updateGame', () => {
             expect(updateGame(state).level).toEqual(i); 
         }
     });
+
+    it('increases the score when rows are filled', () => {
+        const scores = [40, 100, 300, 1200, 5000, 10000, 35000, 50000];
+        for(let i=0; i<8; i++){
+            for(let j=0; j<=i; j++){
+                state.board[j] = [1,1,1,1,1,1,1,1,1,1];
+            }
+            expect(updateGame(state).score).toEqual(scores[i]);
+        }
+    });
 });

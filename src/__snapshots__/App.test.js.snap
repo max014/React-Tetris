@@ -8,9 +8,7 @@ exports[`App when \`modalUp\` prop is false renders properly 1`] = `
     <Connect(HighScores)
       className="Main"
     />
-    <Connect(Display)
-      refreshRate={33.333333333333336}
-    />
+    <Connect(Display) />
     <div
       style={
         Object {

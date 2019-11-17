@@ -1,33 +1,5 @@
 import piece from './piece';
-
-const board = [[0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0,0,0,0]];
+import newGame from './newGame';
 
 const pieces = [
     new piece('O'),
@@ -39,6 +11,8 @@ const pieces = [
     new piece('L'),
     new piece('SUPER')
 ];
+const inputs = [37, 39, 40, 83, 68];
+const board = newGame().board;
 
 it('constructs each piece based on type', () => {
     pieces.forEach(piece => expect(piece).toMatchSnapshot());
@@ -60,15 +34,20 @@ it('rotates pieces counter clockwise', () => {
 
 it('moves piece based on input', () => {
     pieces.forEach(piece => {
-        piece.move(37, board);
-        expect(piece).toMatchSnapshot();
-        piece.move(39, board);
-        expect(piece).toMatchSnapshot();
-        piece.move(83, board);
-        expect(piece).toMatchSnapshot();
-        piece.move(68, board);
-        expect(piece).toMatchSnapshot();
-        piece.move(40, board);
-        expect(piece).toMatchSnapshot();
+        inputs.forEach(input => {
+            piece.move(input, board);
+            expect(piece).toMatchSnapshot();
+        });
+    });
+});
+
+it('ignores input if something is in the way', () => {
+    board.forEach((row, i) =>  board[i] = [1,1,1,1,1,1,1,1,1,1]);
+    pieces.forEach(piece => {
+        const originalPosition = piece.position;
+        inputs.forEach(input => {
+            piece.move(input, board);
+            expect(piece.position).toEqual(originalPosition);
+        });
     });
 });

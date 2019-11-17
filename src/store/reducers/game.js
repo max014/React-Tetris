@@ -22,7 +22,7 @@ const game = (state = initialState, action) => {
 			return {
 				...state,
 				pieces: newState.pieces,
-				board: newState.board,
+				board: [...newState.board],
 				input: null,
 				score: newState.score,
 				lines: newState.lines,

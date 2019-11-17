@@ -24,9 +24,9 @@ export class HighScores extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
-    	scores: state.scores
-    };
+	return {
+		scores: state.scores
+	}
 }
 
 const mapDispatchToProps = dispatch => {

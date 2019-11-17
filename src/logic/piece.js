@@ -1,89 +1,91 @@
+import { pieceShapes } from './pieceShapes';
+
 class Piece {
-  constructor(type) {
-  	switch(type){
-  		case "O":
-  			this.position = [
-  				{ y: 21, x:4 },
-  				{ y: 21, x: 5 },
-  				{ y: 20, x: 4 },
-  				{ y: 20, x: 5 }
-  			];
-			this.color = 1;
-			break;
-		case "I":
-			this.position = [
-  				{ y: 23, x:4 },
-  				{ y: 22, x: 4 },
-  				{ y: 21, x: 4 },
-  				{ y: 20, x: 4 }
-  			];
-			this.color = 2;
-			break;
-		case "T":
-			this.position = [
-				{ y: 21, x: 4 },
-				{ y: 20, x: 3 },
-				{ y: 20, x: 4 },
-				{ y: 20, x: 5 }
-			];
-			this.color = 3;
-			break;
-		case "S":
-			this.position = [
-				{ y: 22, x: 5 },
-				{ y: 21, x: 4 },
-				{ y: 21, x: 5 },
-				{ y: 20, x: 4 }
-			];
-			this.color = 4;
-			break;
-		case "Z":
-			this.position = [
-				{ y: 22, x: 4 },
-				{ y: 21, x: 4 },
-				{ y: 21, x: 5 },
-				{ y: 20, x: 5 }
-			];
-			this.color = 5;
-			break;
-		case "J":
-			this.position = [
-				{ y: 22, x: 5 },
-				{ y: 21, x: 5 },
-				{ y: 20, x: 4 },
-				{ y: 20, x: 5 }
-			];
-			this.color = 6;
-			break;
-		case "L":
-			this.position = [
-				{ y: 22, x: 4 },
-				{ y: 21, x: 4 },
-				{ y: 20, x: 4 },
-				{ y: 20, x: 5 }
-			];
-			this.color = 7;
-			break;
-		case "SUPER":
-		this.position = [
-				{ y: 20, x: 1 },
-				{ y: 20, x: 2 },
-				{ y: 20, x: 3 },
-				{ y: 20, x: 4 },
-				{ y: 20, x: 5 },
-				{ y: 20, x: 6 },
-				{ y: 20, x: 7 },
-				{ y: 20, x: 8 },
-			];
-			this.color = 8;
-			break;
-		default:
-			return null;
-  	}
-  	this.rotation = 0;
-  	this.type = type;
-  	this.active = true;
-  }
+	constructor(type) {
+		switch(type){
+			case "O":
+				this.color = 1;
+				break;
+			case "I":
+				this.color = 2;
+				break;
+			case "T":
+				this.color = 3;
+				break;
+			case "S":
+				this.color = 4;
+				break;
+			case "Z":
+				this.color = 5;
+				break;
+			case "J":
+				this.color = 6;
+				break;
+			case "L":
+				this.color = 7;
+				break;
+			case "SUPER":
+				this.color = 8;
+				break;
+			default:
+				return null;
+		}
+		this.position = pieceShapes[type];
+		this.rotation = 0;
+		this.type = type;
+		this.active = true;
+	}
+
+	positionMapper2(positions) {
+		let newPosition;
+		let newRotation;
+		if(this.rotation === 0){
+			newPosition = positions[0];
+			newRotation = 1;
+		} else {
+			newPosition = positions[1];
+			newRotation = 0;
+		}
+		return [newPosition, newRotation];
+	}
+
+	positionMapper4CounterClockwise(positions) {
+		let newPosition;
+		let newRotation;
+		if(this.rotation === 0){
+			newPosition = positions[0];
+			newRotation = 1;
+		} else if (this.rotation === 1) {
+			newPosition = positions[1];
+			newRotation = 2;
+		} else if (this.rotation === 2) {
+			newPosition = positions[2];
+			newRotation = 3;
+		} else if (this.rotation === 3) {
+			newPosition = positions[3];
+			newRotation = 0;
+		}
+		return [newPosition, newRotation];
+	}
+
+	positionMapper4Clockwise(positions) {
+		let newPosition;
+		let newRotation;
+		if(this.rotation === 0){
+			newPosition = positions[0];
+			newRotation = 3;
+		} else if (this.rotation === 3) {
+			newPosition = positions[1];
+			newRotation = 2;
+		} else if (this.rotation === 2) {
+			newPosition = positions[2];
+			newRotation = 1;
+		} else if (this.rotation === 1) {
+			newPosition = positions[3];
+			newRotation = 0;
+		}
+		return [newPosition, newRotation];
+	}
 
 	canFall(board) {
 		const ys = this.position.map(block => block.y);
@@ -92,7 +94,7 @@ class Piece {
 			return false;
 		};
 
-		const oldPosition = this.position;
+		const oldPosition = [...this.position];
 		const newPosition = this.position.map((block) => {
 			return {
 				y: block.y - 1,
@@ -110,7 +112,7 @@ class Piece {
 					//do nothing for this block
 				} else {
 					for(let i=0; i<oldPosition.length; i++){
-						if(JSON.stringify(newPosition[j]) === JSON.stringify(oldPosition[i])){
+						if(newPosition[j] === oldPosition[i]){
 							inThisPiece = true;
 							break;
 						} 
@@ -185,6 +187,7 @@ class Piece {
 		let newRotation = this.rotation;
 		let positions;
 
+		// eslint-disable-next-line
   		switch(this.type){
 	  		case "O":
 				break;
@@ -203,13 +206,7 @@ class Piece {
 		  				{ x: this.position[3].x - 1, y: this.position[3].y }
 		  			]
 				];
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 			case "T":
 				positions = [
@@ -237,20 +234,8 @@ class Piece {
 		  				{ x: this.position[2].x, y: this.position[2].y },
 		  				{ x: this.position[3].x + 1, y: this.position[3].y + 1 }
 		  			],
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[1];
-					newRotation = 2;
-				} else if (this.rotation === 2) {
-					newPosition = positions[2];
-					newRotation = 3;
-				} else if (this.rotation === 3) {
-					newPosition = positions[3];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper4CounterClockwise(positions);
 				break;
 			case "S":
 				positions = [
@@ -266,14 +251,8 @@ class Piece {
 		  				{ x: this.position[2].x + 1, y: this.position[2].y },
 		  				{ x: this.position[3].x - 1, y: this.position[3].y }
 		  			]
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 			case "Z":
 				positions = [
@@ -289,14 +268,8 @@ class Piece {
 		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
 		  				{ x: this.position[3].x + 1, y: this.position[3].y }
 		  			]
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 			case "J":
 				positions = [
@@ -324,20 +297,8 @@ class Piece {
 		  				{ x: this.position[2].x, y: this.position[2].y - 1 },
 		  				{ x: this.position[3].x + 1, y: this.position[3].y }
 		  			],
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[1];
-					newRotation = 2;
-				} else if (this.rotation === 2) {
-					newPosition = positions[2];
-					newRotation = 3;
-				} else if (this.rotation === 3) {
-					newPosition = positions[3];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper4CounterClockwise(positions);
 				break;
 			case "L":
 				positions = [
@@ -365,20 +326,8 @@ class Piece {
 		  				{ x: this.position[2].x, y: this.position[2].y - 1 },
 		  				{ x: this.position[3].x + 1, y: this.position[3].y }
 		  			],
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[1];
-					newRotation = 2;
-				} else if (this.rotation === 2) {
-					newPosition = positions[2];
-					newRotation = 3;
-				} else if (this.rotation === 3) {
-					newPosition = positions[3];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper4CounterClockwise(positions);
 				break;
 			case "SUPER":
 				positions = [
@@ -403,15 +352,7 @@ class Piece {
 		  				{ x: this.position[7].x + 3, y: this.position[7].y - 7 }
 		  			]
 				];
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
-				break;
-			default:
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 	  	}
 	  	for(let i=0; i<newPosition.length; i++){
@@ -428,6 +369,7 @@ class Piece {
 		let newRotation = this.rotation;
 		let positions;
 
+		// eslint-disable-next-line
   		switch(this.type){
 	  		case "O":
 				break;
@@ -446,13 +388,7 @@ class Piece {
 		  				{ x: this.position[3].x - 1, y: this.position[3].y }
 		  			]
 				];
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 			case "T":
 				positions = [
@@ -480,20 +416,8 @@ class Piece {
 		  				{ x: this.position[2].x, y: this.position[2].y },
 		  				{ x: this.position[3].x + 1, y: this.position[3].y - 1 }
 		  			],
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 3;
-				} else if (this.rotation === 3) {
-					newPosition = positions[1];
-					newRotation = 2;
-				} else if (this.rotation === 2) {
-					newPosition = positions[2];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[3];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper4Clockwise(positions);
 				break;
 			case "S":
 				positions = [
@@ -509,14 +433,8 @@ class Piece {
 		  				{ x: this.position[2].x + 1, y: this.position[2].y },
 		  				{ x: this.position[3].x - 1, y: this.position[3].y }
 		  			]
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 			case "Z":
 				positions = [
@@ -532,14 +450,8 @@ class Piece {
 		  				{ x: this.position[2].x, y: this.position[2].y + 1 },
 		  				{ x: this.position[3].x + 1, y: this.position[3].y }
 		  			]
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 			case "J":
 				positions = [
@@ -567,20 +479,8 @@ class Piece {
 		  				{ x: this.position[2].x - 1, y: this.position[2].y },
 		  				{ x: this.position[3].x, y: this.position[3].y - 1 }
 		  			],
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 3;
-				} else if (this.rotation === 3) {
-					newPosition = positions[1];
-					newRotation = 2;
-				} else if (this.rotation === 2) {
-					newPosition = positions[2];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[3];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper4Clockwise(positions);
 				break;
 			case "L":
 				positions = [
@@ -608,20 +508,8 @@ class Piece {
 		  				{ x: this.position[2].x - 1, y: this.position[2].y },
 		  				{ x: this.position[3].x, y: this.position[3].y - 1 }
 		  			],
-				]
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 3;
-				} else if (this.rotation === 3) {
-					newPosition = positions[1];
-					newRotation = 2;
-				} else if (this.rotation === 2) {
-					newPosition = positions[2];
-					newRotation = 1;
-				} else if (this.rotation === 1) {
-					newPosition = positions[3];
-					newRotation = 0;
-				}
+				];
+				[newPosition, newRotation] = this.positionMapper4Clockwise(positions);
 				break;
 			case "SUPER":
 				positions = [
@@ -646,15 +534,7 @@ class Piece {
 		  				{ x: this.position[7].x + 3, y: this.position[7].y - 7 }
 		  			]
 				];
-				if(this.rotation === 0){
-					newPosition = positions[0];
-					newRotation = 1;
-				} else {
-					newPosition = positions[1];
-					newRotation = 0;
-				}
-				break;
-			default:
+				[newPosition, newRotation] = this.positionMapper2(positions);
 				break;
 	  	}
 	  	for(let i=0; i<newPosition.length; i++){
@@ -669,37 +549,26 @@ class Piece {
 	move(input, board) {
 	  	if (input === 37 || input === 39){ // move sideways
 	  		if(this.canMoveSideways(input, board)){
-		  		const newPosition = this.position.map((block) => {
-			  		switch(input){
-			  			case 37:
-			  				return {
-			  					y: block.y,
-					  			x: block.x - 1
-					  		}
-					  	case 39:
-			  				return {
-			  					y: block.y,
-					  			x: block.x + 1
-					  		}
-					  	default:
-					  		return null;
-			  		}
+				// eslint-disable-next-line
+		  		const newPosition = this.position.map(block => {
+			  		if(input === 37){
+			  			return {
+							y: block.y,
+							x: block.x - 1
+						}
+					} else if (input === 39){
+						return {
+							y: block.y,
+							x: block.x + 1
+						}
+					  }
 			  	});
 				this.position = newPosition;
 			}
-	  	} else if (input === 83 || input === 68){ // rotate
-	  		if(true){
-	  			switch(input){
-		  			case 83:
-		  				this.counterClockwise(board);
-		  				break;
-				  	case 68:
-		  				this.clockwise(board);
-		  				break;
-				  	default:
-				  		break;
-		  		}
-	  		}
+	  	} else if (input === 83 ){
+			this.counterClockwise(board);
+		} else if (input === 68){
+			this.clockwise(board);
 	  	} else if (input === 40){
 	  		this.fall(board);
 	  	}

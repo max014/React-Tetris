@@ -35,4 +35,9 @@ describe('Display', () => {
         jest.advanceTimersByTime(1000);
         expect(end).toHaveBeenCalled();
     });
+    it('clears interval when it unmounts', () => {
+        const interval = display.instance().interval;
+        display.unmount();
+        expect(clearInterval).toHaveBeenCalledWith(interval);
+    });
 });

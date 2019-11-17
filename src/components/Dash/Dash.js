@@ -12,11 +12,11 @@ export const Dash = (props) => (
 );
 
 const mapStateToProps = state => {
-    return {
-        level: state.level,
-        score: state.score,
-        lines: state.lines
-    };
+	return {
+		level: state.level,
+		score: state.score,
+		lines: state.lines
+	}
 }
 
 export default connect(mapStateToProps)(Dash);
